@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,13 +10,25 @@
   </head>
   <body>
     <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
 
     <script>
-      const h1 = document.createElement('h1');
-      h1.innerHTML = 'Hello from JavaScript';
-
-      const root = document.getElementById('root');
-      root.appendChild(h1);
+      const heading = React.createElement(
+        'div',
+        {id: 'parent'},
+        React.createElement('div', {id: 'child'}, [
+          React.createElement('h1', {}, 'I am h1 tag'),
+          React.createElement('h2', {}, 'I am h2 tag'),
+        ]),
+      );
+      console.log(heading);
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(heading);
+      console.log(root);
     </script>
   </body>
 </html>
